@@ -46,7 +46,7 @@
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
-        <ListBox Grid.Column="1" ItemsSource="{Binding Race}" SelectedItem="{Binding SelectedFromRace}">
+        <ListBox x:Name="lb_race" Grid.Column="1" ItemsSource="{Binding Race}" SelectedItem="{Binding SelectedFromRace}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1">
@@ -75,8 +75,8 @@
         <StackPanel Grid.Column="2">
             <Label  Background="LightBlue" Content="Specify a save name" HorizontalContentAlignment="Center"/>
             <TextBox x:Name="tb_savename" Height="30"/>
-            <Button Content="Save" Margin="5"/>
-            <Button Content="Load" Margin="5"/>
+            <Button Content="Save" Margin="5" Click="Save_click"/>
+            <Button Content="Load" Margin="5" Click="Load_click"/>
             <Button Content="Add to Race" Command="{Binding AddToRaceCommand}" Margin="5"/>
             <Button Content="Remove From Race" Command="{Binding RemoveFromRaceCommand}" Margin="5"/>
             <Button Content="View" Margin="5" Command="{Binding ViewAthleteCommand}"/>
