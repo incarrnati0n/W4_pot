@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:W4_pot"
         xmlns:vms="clr-namespace:W4_pot.ViewModels"
         mc:Ignorable="d"
-        Title="AthleteViewerWindow" Height="461" Width="249">
+        Title="AthleteViewerWindow" Height="471" Width="249">
     <Window.DataContext>
         <vms:AthleteViewerWindowViewModel/>
     </Window.DataContext>

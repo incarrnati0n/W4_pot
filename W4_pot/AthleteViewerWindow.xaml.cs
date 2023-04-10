@@ -24,8 +24,9 @@ namespace W4_pot
         public AthleteViewerWindow(Athlete athlete)
         {
             InitializeComponent();
-            this.DataContext = new AthleteViewerWindowViewModel();
-            (this.DataContext as AthleteViewerWindowViewModel).Setup(athlete);
+            var vm = new AthleteViewerWindowViewModel();
+            vm.Setup(athlete);
+            this.DataContext = vm;
         }
     }
 }
