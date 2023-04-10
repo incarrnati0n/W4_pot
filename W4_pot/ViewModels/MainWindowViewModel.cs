@@ -105,7 +105,7 @@ namespace W4_pot.ViewModels
                 PersonalBest = 130,
                 SeasonalBest = 140,
                 RaceNumber = 7,
-                HasLicense = false,
+                HasLicense = true,
                 HasTeam = true,
             });
 
@@ -119,8 +119,7 @@ namespace W4_pot.ViewModels
                 HasTeam = false,
             });
 
-            Race.Add(Athletes[0].GetCopy());
-            Race.Add(Athletes[1].GetCopy());
+
 
             logic.SetupCollections(Athletes, Race);
 
