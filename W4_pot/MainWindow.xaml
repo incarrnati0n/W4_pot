@@ -1,0 +1,85 @@
+﻿<Window x:Class="W4_pot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:W4_pot"
+        xmlns:vms="clr-namespace:W4_pot.ViewModels"
+        xmlns:helpers="clr-namespace:W4_pot.Helpers"
+        mc:Ignorable="d"
+        Title="Race Editor" Height="450" Width="800">
+    <Window.DataContext>
+        <vms:MainWindowViewModel/>
+    </Window.DataContext>
+    <Window.Resources>
+        <helpers:BoolToColorConverter x:Key="colorconvert"/>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <ListBox Grid.Column="0" ItemsSource="{Binding Athletes}" SelectedItem="{Binding SelectedFromAthletes}"  HorizontalContentAlignment="Stretch">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="{Binding Name}" FontSize="10" FontWeight="Bold"/>
+                            <Label Content="{Binding PersonalBest}" ContentStringFormat="Personal Best: {0} sec" FontSize="10" Grid.Row="1"/>
+                            <Label Content="{Binding SeasonalBest}" ContentStringFormat="Seasonal Best: {0} sec" FontSize="10" Grid.Row="1" Grid.Column="1"/>
+                            <Label Content="{Binding HasLicense}" Background="{Binding HasLicense, Converter={StaticResource colorconvert}}" ContentStringFormat="Has License: {0}" FontSize="10" Grid.Row="2" Grid.Column="0"/>
+                            <Label Content="{Binding HasTeam}" Background="{Binding HasTeam, Converter={StaticResource colorconvert}}" ContentStringFormat="Has Team: {0}"   FontSize="10" Grid.Row="2" Grid.Column="1"/>
+                            <Label Content="{Binding Value}" ContentStringFormat="Value {0}$" Grid.Row="0" Grid.Column="2"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Grid.Column="1" ItemsSource="{Binding Race}" SelectedItem="{Binding SelectedFromRace}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Label Content="{Binding Name}" FontSize="10" FontWeight="Bold"/>
+                            <Label Content="{Binding PersonalBest}" ContentStringFormat="Personal Best: {0} sec" FontSize="10" Grid.Row="1"/>
+                            <Label Content="{Binding SeasonalBest}" ContentStringFormat="Seasonal Best: {0} sec" FontSize="10" Grid.Row="1" Grid.Column="1"/>
+                            <Label Content="{Binding HasLicense}" Background="{Binding HasLicense, Converter={StaticResource colorconvert}}" ContentStringFormat="Has License: {0}"   FontSize="10" Grid.Row="2" Grid.Column="0"/>
+                            <Label Content="{Binding HasTeam}" Background="{Binding HasTeam, Converter={StaticResource colorconvert}}" ContentStringFormat="Has Team: {0}" FontSize="10" Grid.Row="2" Grid.Column="1"/>
+                            <Label Content="{Binding Value}" ContentStringFormat="Value {0}$" Grid.Row="0" Grid.Column="2"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <StackPanel Grid.Column="2">
+            <Label  Background="LightBlue" Content="Specify a save name" HorizontalContentAlignment="Center"/>
+            <TextBox x:Name="tb_savename" Height="30"/>
+            <Button Content="Save" Margin="5"/>
+            <Button Content="Load" Margin="5"/>
+            <Button Content="Add to Race" Command="{Binding AddToRaceCommand}" Margin="5"/>
+            <Button Content="Remove From Race" Command="{Binding RemoveFromRaceCommand}" Margin="5"/>
+            <Button Content="View" Margin="5" Command="{Binding ViewAthleteCommand}"/>
+        </StackPanel>
+    </Grid>
+</Window>

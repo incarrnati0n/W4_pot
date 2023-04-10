@@ -1,0 +1,29 @@
+﻿<Window x:Class="W4_pot.AthleteViewerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:W4_pot"
+        xmlns:vms="clr-namespace:W4_pot.ViewModels"
+        mc:Ignorable="d"
+        Title="AthleteViewerWindow" Height="461" Width="249">
+    <Window.DataContext>
+        <vms:AthleteViewerWindowViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <StackPanel x:Name="Stack">
+            <Label Content="Name" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.Name}" Padding="10"/>
+            <Label Content="Personal Best" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.PersonalBest}" Padding="10"/>
+            <Label Content="Seasonal Best" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.SeasonalBest}" Padding="10"/>
+            <Label Content="Has License" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.HasLicense}" Padding="10"/>
+            <Label Content="Has Team" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.HasTeam}" Padding="10"/>
+            <Label Content="Race Number" Padding="10" Background="LightBlue"/>
+            <TextBox Text="{Binding Actual.RaceNumber}" Padding="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
