@@ -14,7 +14,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using W4_pot.Logic;
 using W4_pot.Model;
+using W4_pot.ViewModels;
 
 namespace W4_pot
 {
@@ -23,9 +25,12 @@ namespace W4_pot
     /// </summary>
     public partial class MainWindow : Window
     {
+        //MainWindowViewModel vm;
         public MainWindow()
         {
             InitializeComponent();
+            //vm = new MainWindowViewModel();
+
         }
 
         private void Save_click(object sender, RoutedEventArgs e)
@@ -42,6 +47,48 @@ namespace W4_pot
 
         private void Load_click(object sender, RoutedEventArgs e)
         {
+            var vm = this.DataContext as MainWindowViewModel;
+            vm.Athletes.Add(new Athlete
+            {
+                Name = "Zs. Ádám",
+                PersonalBest = 120,
+                SeasonalBest = 125,
+                RaceNumber = 33,
+                HasLicense = true,
+                HasTeam = true,
+            });
+
+            vm.Athletes.Add(new Athlete
+            {
+                Name = "Sz. Brendon",
+                PersonalBest = 200,
+                SeasonalBest = 230,
+                RaceNumber = 21,
+                HasLicense = true,
+                HasTeam = false,
+            });
+
+            vm.Athletes.Add(new Athlete
+            {
+                Name = "H. Imre",
+                PersonalBest = 130,
+                SeasonalBest = 140,
+                RaceNumber = 7,
+                HasLicense = true,
+                HasTeam = true,
+            });
+
+            vm.Athletes.Add(new Athlete
+            {
+                Name = "G. Jakab",
+                PersonalBest = 420,
+                SeasonalBest = 690,
+                RaceNumber = 69,
+                HasLicense = false,
+                HasTeam = false,
+            });
+
+            vm.logic.SetupCollections(vm.Athletes, vm.Race);
 
         }
     }

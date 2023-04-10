@@ -18,7 +18,7 @@ namespace W4_pot.ViewModels
 {
     public class MainWindowViewModel : ObservableRecipient
     {
-        IRaceLogic logic;
+        public IRaceLogic logic;
 
         //Középső listboxba fog menni, csak HasLicense = True, Kovinál ez az Army
         public ObservableCollection<Athlete> Race { get; set; }
@@ -78,51 +78,47 @@ namespace W4_pot.ViewModels
             Race = new ObservableCollection<Athlete>();
             Athletes = new ObservableCollection<Athlete>();
 
+            //Athletes.Add(new Athlete
+            //{
+            //    Name = "Zs. Ádám",
+            //    PersonalBest = 120,
+            //    SeasonalBest = 125,
+            //    RaceNumber = 33,
+            //    HasLicense = true,
+            //    HasTeam = true,
+            //});
 
+            //Athletes.Add(new Athlete
+            //{
+            //    Name = "Sz. Brendon",
+            //    PersonalBest = 200,
+            //    SeasonalBest = 230,
+            //    RaceNumber = 21,
+            //    HasLicense = true,
+            //    HasTeam = false,
+            //});
 
-            Athletes.Add(new Athlete
-            {
-                Name = "Zs. Ádám",
-                PersonalBest = 120,
-                SeasonalBest = 125,
-                RaceNumber = 33,
-                HasLicense = true,
-                HasTeam = true,
-            });
+            //Athletes.Add(new Athlete
+            //{
+            //    Name = "H. Imre",
+            //    PersonalBest = 130,
+            //    SeasonalBest = 140,
+            //    RaceNumber = 7,
+            //    HasLicense = true,
+            //    HasTeam = true,
+            //});
 
-            Athletes.Add(new Athlete
-            {
-                Name = "Sz. Brendon",
-                PersonalBest = 200,
-                SeasonalBest = 230,
-                RaceNumber = 21,
-                HasLicense = true,
-                HasTeam = false,
-            });
+            //Athletes.Add(new Athlete
+            //{
+            //    Name = "G. Jakab",
+            //    PersonalBest = 420,
+            //    SeasonalBest = 690,
+            //    RaceNumber = 69,
+            //    HasLicense = false,
+            //    HasTeam = false,
+            //});
 
-            Athletes.Add(new Athlete
-            {
-                Name = "H. Imre",
-                PersonalBest = 130,
-                SeasonalBest = 140,
-                RaceNumber = 7,
-                HasLicense = true,
-                HasTeam = true,
-            });
-
-            Athletes.Add(new Athlete
-            {
-                Name = "G. Jakab",
-                PersonalBest = 420,
-                SeasonalBest = 690,
-                RaceNumber = 69,
-                HasLicense = false,
-                HasTeam = false,
-            });
-
-
-
-            logic.SetupCollections(Athletes, Race);
+            //logic.SetupCollections(Athletes, Race);
 
             AddToRaceCommand = new RelayCommand(
                 () => logic.AddToRace(SelectedFromAthletes),

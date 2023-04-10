@@ -20,7 +20,7 @@
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <ListBox Grid.Column="0" ItemsSource="{Binding Athletes}" SelectedItem="{Binding SelectedFromAthletes}"  HorizontalContentAlignment="Stretch">
+        <ListBox x:Name="athletesListBox" Grid.Column="0" ItemsSource="{Binding Athletes}" SelectedItem="{Binding SelectedFromAthletes}"  HorizontalContentAlignment="Stretch">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="Black" BorderThickness="1">
