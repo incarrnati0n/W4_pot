@@ -34,6 +34,7 @@ namespace W4_pot.ViewModels
             { 
                 SetProperty(ref selectedFromAthletes, value);
                 (AddToRaceCommand as RelayCommand).NotifyCanExecuteChanged();
+                (ViewAthleteCommand as RelayCommand).NotifyCanExecuteChanged();
             }
         }
 
@@ -135,8 +136,8 @@ namespace W4_pot.ViewModels
                 );
 
             ViewAthleteCommand = new RelayCommand(
-                () => logic.ViewAthlete(SelectedFromRace),
-                () => SelectedFromRace != null
+                () => logic.ViewAthlete(SelectedFromAthletes),
+                () => SelectedFromAthletes != null
                 );
 
         }
