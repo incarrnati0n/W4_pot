@@ -35,14 +35,16 @@ namespace W4_pot
 
         private void Save_click(object sender, RoutedEventArgs e)
         {
-            List<Athlete> athletes = new List<Athlete>();
-            foreach (var item in lb_race.Items)
-            {
-                athletes.Add(item as Athlete);
-            }
+                List<Athlete> athletes = new List<Athlete>();
+                foreach (var item in lb_race.Items)
+                {
+                    athletes.Add(item as Athlete);
+                }
 
-            string JsonData = JsonConvert.SerializeObject(athletes);
-            File.WriteAllText(tb_savename.Text + ".json", JsonData);
+                string JsonData = JsonConvert.SerializeObject(athletes);
+                File.WriteAllText(tb_savename.Text + ".json", JsonData);
+            
+            
         }
 
         private void Load_click(object sender, RoutedEventArgs e)

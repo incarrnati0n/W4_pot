@@ -55,16 +55,16 @@ namespace W4_pot.ViewModels
         public ICommand ViewAthleteCommand { get; set; }
 
 
-        public static bool IsInDesignMode
-        {
-            get
-            {
-                var prop = DesignerProperties.IsInDesignModeProperty;
-                return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
-            }
-        }
+        //public static bool IsInDesignMode
+        //{
+        //    get
+        //    {
+        //        var prop = DesignerProperties.IsInDesignModeProperty;
+        //        return (bool)DependencyPropertyDescriptor.FromProperty(prop, typeof(FrameworkElement)).Metadata.DefaultValue;
+        //    }
+        //}
 
-        public MainWindowViewModel() : this(IsInDesignMode ? null : Ioc.Default.GetService<IRaceLogic>())
+        public MainWindowViewModel() : this(Ioc.Default.GetService<IRaceLogic>())
         {
 
         }
